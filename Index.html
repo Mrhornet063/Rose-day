@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Rose Day Maysha 🌹</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+      color: #fff;
+      text-align: center;
+      overflow-x: hidden;
+    }
+    .container { padding: 40px 20px; }
+    h1 { font-size: 2.8em; margin-bottom: 10px; }
+    h2 { font-weight: 300; margin-bottom: 30px; }
+    .rose { font-size: 90px; animation: pulse 2s infinite; margin: 20px 0; }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    .message {
+      background: rgba(255,255,255,0.2);
+      padding: 25px;
+      border-radius: 15px;
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.1em;
+      line-height: 1.7;
+    }
+
+    .btn {
+      margin-top: 30px;
+      padding: 14px 28px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.1em;
+      cursor: pointer;
+      background: #ff4d6d;
+      color: white;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    footer { margin-top: 40px; font-size: 0.9em; opacity: 0.9; }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background: #ff758f;
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 500px;
+      animation: pop 0.4s ease;
+    }
+
+    @keyframes pop {
+      from { transform: scale(0.7); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .close {
+      margin-top: 20px;
+      background: white;
+      color: #ff4d6d;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .petal {
+      position: fixed;
+      top: -50px;
+      font-size: 24px;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      to { transform: translateY(110vh) rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- 🎵 Background Music (plays after tap) -->
+<audio id="bgMusic" loop>
+  <source src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Chad_Crouch/Arps/Chad_Crouch_-_01_-_I_Think_They_Call_This_Love.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+  <h1>Happy Rose Day 🌹</h1>
+  <h2>My Little Princess, Maysha ❤️</h2>
+
+  <div class="rose">🌹</div>
+
+  <div class="message">
+    Happy Rose Day my little princess 💖<br><br>
+    Sorry I couldn’t give you a real rose,
+    that’s why I am giving you this virtual rose 🌹<br><br>
+    I love you soo much my princess.
+    Thank you for being with me.<br><br>
+    I love you ❤️
+  </div>
+
+  <button class="btn" onclick="startMusic(); openSurprise();">
+    Click for Surprise 💝
+  </button>
+
+  <footer>Forever yours 🌸</footer>
+</div>
+
+<div class="modal" id="surpriseModal">
+  <div class="modal-content">
+    <h3>💖 Surprise for You, Maysha 💖</h3>
+    <p>
+      You are my favorite thought every day,
+      my smile in hard times,
+      and my forever rose 🌹<br><br>
+      I promise to love you more every single day ❤️
+    </p>
+    <button class="close" onclick="closeSurprise()">Close 💕</button>
+  </div>
+</div>
+
+<script>
+  function startMusic() {
+    const music = document.getElementById("bgMusic");
+    music.play().catch(() => {});
+  }
+
+  function createPetal() {
+    const petal = document.createElement("div");
+    petal.classList.add("petal");
+    petal.innerHTML = "🌸";
+    petal.style.left = Math.random() * 100 + "vw";
+    petal.style.animationDuration = (Math.random() * 3 + 4) + "s";
+    document.body.appendChild(petal);
+    setTimeout(() => petal.remove(), 7000);
+  }
+
+  setInterval(createPetal, 400);
+
+  function openSurprise() {
+    document.getElementById("surpriseModal").style.display = "flex";
+  }
+
+  function closeSurprise() {
+    document.getElementById("surpriseModal").style.display = "none";
+  }
+</script>
+
+</body>
+</html>
